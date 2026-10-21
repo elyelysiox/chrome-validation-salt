@@ -1,7 +1,7 @@
 name: Update Chrome Salt
 on:
   schedule:
-    - cron: '0 8 * * *'   # cada día a las 8 UTC
+    - cron: '0 6 * * *'   # cada día a las 8 UTC
   workflow_dispatch:        # también manual
 
 permissions:
