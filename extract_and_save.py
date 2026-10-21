@@ -8,7 +8,7 @@ from chrome_real_fetcher import (
 
 CHANNELS = ["stable", "beta", "dev", "canary"]
 
-# Cargar datos anteriores para no perder canales que fallen en esta ejecución
+# Cargar datos anteriores
 try:
     with open("data.json") as f:
         results = json.load(f)
@@ -24,13 +24,33 @@ for channel in CHANNELS:
         if not url:
             print(f"[=] {channel}: sin actualización")
             continue
+
+        # Si la versión ya está en el historial, no re-descargamos
+        channel_data = results.get(channel, {})
+        history      = channel_data.get("history", [])
+        known_versions = {e["version"] for e in history}
+
+        if version in known_versions:
+            print(f"[=] {channel}: {version} ya registrado, omitiendo")
+            continue
+
         pkg    = download_with_progress(url, session)
         dll    = extract_chrome_dll(pkg)
         result = extract_salt_from_bytes(dll)
+
         if result:
             salt, _, _ = result
-            results[channel] = {"version": version, "salt": salt}
+            entry = {"version": version, "salt": salt,
+                     "date": datetime.date.today().isoformat()}
+
+            history.insert(0, entry)
+
+            results[channel] = {
+                "current": entry,      # acceso rápido al último
+                "history": history,    # todos los anteriores
+            }
             print(f"[✓] {channel}: {version} → {salt}")
+
     except Exception as e:
         print(f"[!] {channel}: {e}")
 
