@@ -38,14 +38,19 @@
       }
     ]
   },
-  "updated_at": "2026-11-04T13:54:59.156251Z",
+  "updated_at": "2026-11-05T14:06:27.655780Z",
   "beta": {
     "current": {
-      "version": "158.0.8127.2",
-      "salt": "4b4e3f2903d0e5ed",
-      "date": "2026-10-29"
+      "version": "158.0.8127.18",
+      "salt": "fbf2c8a3b065a2d9",
+      "date": "2026-11-05"
     },
     "history": [
+      {
+        "version": "158.0.8127.18",
+        "salt": "fbf2c8a3b065a2d9",
+        "date": "2026-11-05"
+      },
       {
         "version": "158.0.8127.2",
         "salt": "4b4e3f2903d0e5ed",
