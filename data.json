@@ -53,7 +53,7 @@
       }
     ]
   },
-  "updated_at": "2026-11-20T14:56:42.772178Z",
+  "updated_at": "2026-11-21T14:18:48.922456Z",
   "beta": {
     "current": {
       "version": "159.0.8154.13",
@@ -95,11 +95,16 @@
   },
   "dev": {
     "current": {
-      "version": "160.0.8157.0",
-      "salt": "bc7daaffbcac4d73",
-      "date": "2026-11-14"
+      "version": "160.0.8171.0",
+      "salt": "cd3d5b32663d6c84",
+      "date": "2026-11-21"
     },
     "history": [
+      {
+        "version": "160.0.8171.0",
+        "salt": "cd3d5b32663d6c84",
+        "date": "2026-11-21"
+      },
       {
         "version": "160.0.8157.0",
         "salt": "bc7daaffbcac4d73",
